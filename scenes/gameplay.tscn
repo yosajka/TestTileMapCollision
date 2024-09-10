@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=4 uid="uid://8hwsmyiejr56"]
+
+[ext_resource type="PackedScene" uid="uid://ce5afgv7esy5p" path="res://scenes/item.tscn" id="1_e66nr"]
+[ext_resource type="Texture2D" uid="uid://r1b4kd7ykkrx" path="res://sprites/Rare.png" id="2_pmaif"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_alxvk"]
+texture = ExtResource("2_pmaif")
+texture_region_size = Vector2i(80, 80)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-40, -40, 40, -40, 40, 40, -40, 40)
+
+[sub_resource type="TileSet" id="TileSet_6rrqb"]
+tile_size = Vector2i(80, 80)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_alxvk")
+
+[node name="Gameplay" type="Node2D"]
+
+[node name="Item" parent="." instance=ExtResource("1_e66nr")]
+position = Vector2(923, 296)
+
+[node name="Board" type="TileMapLayer" parent="."]
+position = Vector2(588, 331)
+tile_map_data = PackedByteArray("AAD8//3/AAAAAAAAAAD9//3/AAAAAAAAAAD+//3/AAAAAAAAAAD///3/AAAAAAAAAAAAAP3/AAAAAAAAAAAAAP7/AAAAAAAAAAD///7/AAAAAAAAAAD+//7/AAAAAAAAAAD9//7/AAAAAAAAAAD8//7/AAAAAAAAAAD8////AAAAAAAAAAD9////AAAAAAAAAAD+////AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAD+/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAD8/wAAAAAAAAAAAAD8/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_6rrqb")
+collision_visibility_mode = 1
+
+[editable path="Item"]
